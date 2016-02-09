@@ -1,0 +1,24 @@
+<ion-view ng-init="getBuyerName();getBuyerRole();getBuyerProducts();imageSrc='http://placehold.it/100x100'" title="{{buyer.name}} Home">
+    <ion-content>
+        <div ng-repeat="category in categories">
+            <div class="list">
+                <div class="item item-divider">
+                    {{category.name}}
+                </div>
+                <span ng-repeat="product in filteredProducts = ( products | filterByCategory: category )| limitTo:numberOfProductsToShow">
+                    <a class="item item-thumbnail-left" ng-click="productPage(product)">
+                        <img src="{{product.image}}">
+                        <h2>{{product.name}}</h2>
+                        <p ng-repeat="color in product.colors">
+                            {{color.name}}
+                        </p>
+                    </a>
+                <a class="item item-icon-right" ng-click="viewMorePage(category)" ng-show="filteredProducts.length > numberOfProductsToShow">
+                    View More
+                    <i class="icon ion-chevron-right"></i>
+                </a>
+                </span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

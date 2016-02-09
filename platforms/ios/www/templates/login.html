@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-content  padding="true" class="login-blc-bg">
+        <div class="scroll padding" style="transform: translate3d(0px, 0px, 0px) scale(1);" ng-controller="loginCtrl">
+            <div class="list">
+                <p class="form_logo">
+                    <img title="" alt="" src="images/logo.png" class="logo">
+                </p>
+                <label class="item item-input">
+                    <input type="text" placeholder="Username" ng-model="user.username">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="user.password">
+                </label>
+
+                <button ng-click="login()" class="button button-block button-assertive">
+                    LOGIN
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

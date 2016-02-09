@@ -1,0 +1,24 @@
+<ion-nav-bar class="bar-stable">
+    <ion-nav-back-button class="button button-clear button-assertive ion-ios-arrow-back header-item"> Back</ion-nav-back-button>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear button-assertive" ng-click="logout()">Logout</button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+<ion-tabs class="tabs-stable tabs-striped tabs-color-assertive">
+    <!-- Dashboard Tab -->
+    <ion-tab title="Home" icon="icon ion-home" href="#/app/home">
+        <ion-nav-view name="tab-home"></ion-nav-view>
+    </ion-tab>
+    <!-- View Orders Tab -->
+    <ion-tab title="View Orders" icon="icon ion-bag" href="#/app/orders">
+        <ion-nav-view name="tab-orders"></ion-nav-view>
+    </ion-tab>
+    <!-- Account Tab -->
+    <ion-tab title="Settings" icon="icon ion-gear-b" href="#/app/settings">
+        <ion-nav-view name="tab-settings"></ion-nav-view>
+    </ion-tab>
+    <!-- Other Views Tab-->
+    <ion-tab title="Account" icon="icon ion-gear-b"  href="#/tab/others" hidden="true">
+        <ion-nav-view name="others"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

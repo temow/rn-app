@@ -1,0 +1,151 @@
+<!--<ion-view title="Create new order">-->
+    <!--<ion-content ng-init="initProduct()" overflow-scroll="true">-->
+        <!--<div class="card">-->
+            <!--<a ng-click="showRepeatForm=!showRepeatForm;showCustomForm=false">-->
+                <!--<div class="item item-text-wrap">-->
+                    <!--Repeat Order-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="card" ng-show="showRepeatForm">-->
+            <!--<form class="list">-->
+                <!--<ion-list>-->
+                    <!--<label class="item item-input item-select">-->
+                        <!--<div class="input-label">Select Product</div>-->
+                        <!--<select ng-model="productSelected"-->
+                                <!--ng-init="productSelected.name"-->
+                                <!--ng-options="product.name for product in products">-->
+                        <!--</select>-->
+                    <!--</label>-->
+
+                    <!--<label class="item">-->
+                        <!--<span class="input-label">Product Image</span>-->
+                        <!--<span class="row">-->
+                            <!--<span class="col">-->
+                                <!--<img width="100px" height="100px" ng-init="product.image='http://placehold.it/100x100'" ng-src="{{productSelected.image}}"/>-->
+                            <!--</span>-->
+                        <!--</span>-->
+                    <!--</label>-->
+                    <!--<span class="item" ng-repeat="color in productSelected.colorsAndQuantity">-->
+                        <!--<span class="row item-input">-->
+                            <!--<span class="col">-->
+                                <!--<ion-checkbox ng-model="color.checked"-->
+                                              <!--ng-checked="color.checked">-->
+                                    <!--{{ color.name }}-->
+                                <!--</ion-checkbox>-->
+                            <!--</span>-->
+                            <!--<div ng-show="color.checked" class="col">-->
+                                <!--<input type="number" placeholder="Qty" ng-model="color.qty" ng-required="true">-->
+                            <!--</div>-->
+                        <!--</span>-->
+                        <!--<span class="row" ng-show="color.hasOwnProperty('image')">-->
+                            <!--<span class="col">-->
+                                <!--<button type="button" ng-click="showImage(color)" class="button button-outline button-assertive item-button-right">View Photo</button>-->
+                            <!--</span>-->
+                        <!--</span>-->
+                    <!--</span>-->
+                <!--</ion-list>-->
+                <!--<div class="spacer" style="height: 40px;"></div>-->
+                <!--<a href="" ng-click="createOrderRepeat(productSelected)" class="button button-block button-assertive">Add</a>-->
+            <!--</form>-->
+        <!--</div>-->
+        <!--<script id="image-modal.html" type="text/ng-template">-->
+            <!--<div class="modal image-modal transparent" ng-click="closeModal()">-->
+                <!--<ion-pane class="transparent">-->
+                    <!--<img ng-src="{{imageSrc}}" class="fullscreen-image"/>-->
+                <!--</ion-pane>-->
+            <!--</div>-->
+        <!--</script>-->
+        <!--<div class="card">-->
+            <!--<a ng-click="showCustomForm=!showCustomForm;showRepeatForm=false">-->
+                <!--<div class="item item-text-wrap">-->
+                    <!--Custom Design-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div ng-show="showCustomForm">-->
+            <!--<h1>Custom</h1>-->
+        <!--</div>-->
+    <!--</ion-content>-->
+<!--</ion-view>-->
+
+<ion-view title="Create new order">
+    <ion-content ng-init="initProduct()" >
+        <div class="card">
+            <div class="button-bar">
+                <a class="button " ng-click="showRepeatForm=!showRepeatForm;showCustomForm=false" ng-class="{'active active-theme': showRepeatForm}">
+                    <i class="ion-ios-upload"></i> Repeat Order
+                </a>
+                <a class="button" ng-click="showCustomForm=!showCustomForm;showRepeatForm=false" ng-class="{'active active-theme': showCustomForm}"  >
+                    <i class="ion-ios-upload"></i> Custom Order
+                </a>
+
+
+
+            </div>
+        </div>
+        <div class="card" ng-show="showRepeatForm">
+            <form class="list">
+                <ion-list>
+                    <label class="item item-input item-select">
+                        <div class="input-label">Select Product</div>
+                        <select ng-model="productSelected"
+                                ng-init="productSelected.name"
+                                ng-options="product.name for product in products">
+                        </select>
+                    </label>
+
+                    <label class="item">
+                        <span class="input-label">Product Image</span>
+                        <span class="row">
+                            <span class="col">
+                                <img width="100px" height="100px" ng-init="product.image='http://placehold.it/100x100'" ng-src="{{productSelected.image}}"/>
+                            </span>
+                        </span>
+                    </label>
+                    <span class="item" ng-repeat="color in productSelected.colorsAndQuantity">
+                        <span class="row item-input">
+                            <span class="col">
+                                <ion-checkbox ng-model="color.checked"
+                                              ng-checked="color.checked">
+                                    {{ color.name }}
+                                </ion-checkbox>
+                            </span>
+                            <div ng-show="color.checked" class="col">
+                                <input type="number" placeholder="Qty" ng-model="color.qty" ng-required="true">
+                            </div>
+                        </span>
+                        <span class="row" ng-show="color.hasOwnProperty('image')">
+                            <span class="col">
+                                <button type="button" ng-click="showImage(color)" class="button button-outline button-assertive item-button-right">View Photo</button>
+                            </span>
+                        </span>
+                    </span>
+                </ion-list>
+                <div class="spacer" style="height: 40px;"></div>
+                <a href="" ng-click="createOrderRepeat(productSelected)" class="button button-block button-assertive">Add</a>
+            </form>
+        </div>
+        <script id="image-modal.html" type="text/ng-template">
+            <div class="modal image-modal transparent" ng-click="closeModal()">
+                <ion-pane class="transparent">
+                    <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
+                </ion-pane>
+            </div>
+        </script>
+
+        <div class="card" ng-show="showCustomForm">
+            <form class="list">
+                <ion-list>
+                    <label class="item item-input item-select">
+                        <div class="input-label">Select Product</div>
+                        <select ng-model="productSelected"
+                                ng-init="productSelected.name"
+                                ng-options="product.name for product in products">
+                        </select>
+                    </label>
+                </ion-list>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

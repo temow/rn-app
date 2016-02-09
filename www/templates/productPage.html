@@ -1,0 +1,38 @@
+<ion-view>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-divider">
+                <h2>{{product.name}}</h2>
+            </div>
+            <div class="item item item-icon-left">
+                <i class="icon ion-pricetags"></i>
+                <h2> {{product.category.name}}</h2>
+                <p>{{product.createdAt}}</p>
+            </div>
+            <div class="item item-image">
+                <img src="{{product.image}}">
+            </div>
+            <div class="list" ng-show="product.colors">
+                <span class="item item-icon-left item-divider assertive padding55" >
+                    <i class="icon ion-ios-color-filter"></i>
+                    COLORS
+                </span>
+                <a class="item item-icon-left item-avatar item-icon-right" ng-click="showImage(color)" ng-repeat="color in product.colors">
+                    <img src="{{product.image}}">
+                    {{color.name}}
+                    <i class="icon ion-ios-plus-outline assertive"></i>
+                </a>
+            </div>
+        </div>
+        <button class="button button-block button-assertive" ng-click="productOrderPage(product)">
+            Create Order
+        </button>
+        <script id="image-modal.html" type="text/ng-template">
+            <div class="modal image-modal transparent" ng-click="closeModal()">
+                <ion-pane class="transparent">
+                    <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
+                </ion-pane>
+            </div>
+        </script>
+    </ion-content>
+</ion-view>

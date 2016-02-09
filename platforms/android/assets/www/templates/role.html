@@ -1,0 +1,15 @@
+<ion-view title="Create a Role" ng-controller="roleCtrl as roleCtrl">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="card">
+            <form class="list">
+                <ion-list>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Role Name</span>
+                        <input type="text" placeholder="Role Name" ng-model="roleCtrl.role.name">
+                    </label>
+                </ion-list>
+                <a href="" ng-click="roleCtrl.createRole()" class="button button-block button-assertive">Create</a>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

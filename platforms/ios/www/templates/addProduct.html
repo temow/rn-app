@@ -1,0 +1,41 @@
+<ion-view title="Add a product">
+    <ion-content overflow-scroll="true">
+        <div class="card">
+            <form class="list" ng-init="getAllRoles();getAllCategories()">
+                <ion-list>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Product Name</span>
+                        <input type="text" placeholder="Product Name" ng-model="product.name">
+                    </label>
+
+                    <label class="item">
+                        <span class="input-label">Product Image</span>
+                            <span class="row">
+                                <span class="col">
+                                    <img width="100px" height="100px" ng-init="product.image='http://placehold.it/100x100'" ng-src="{{product.image}}"/>
+                                </span>
+                                <span class="col col-center">
+                                    <button type="button" ng-click="addMedia()" class="button button-outline button-assertive item-button-right">Select</button>
+                                </span>
+                        </span>
+                    </label>
+
+                    <label class="item item-input item-select">
+                        <div class="input-label">Select Role</div>
+                        <select ng-model="product.role">
+                            <option ng-repeat="role in roles" ng-value="role.id">{{role.name}}</option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-select">
+                        <div class="input-label">Select Category</div>
+                        <select ng-model="product.category">
+                            <option ng-repeat="category in categories" ng-value="category.id">{{category.name}}</option>
+                        </select>
+                    </label>
+                </ion-list>
+                <div class="spacer" style="height: 40px;"></div>
+            </form>
+            <a href="" ng-click="addProduct()" class="button button-block button-assertive">Add</a>
+        </div>
+    </ion-content>
+</ion-view>

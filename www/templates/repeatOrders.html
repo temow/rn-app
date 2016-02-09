@@ -1,0 +1,16 @@
+<ion-view title="Repeat Orders - {{products.role}}">
+    <ion-content>
+        <div class="list">
+            <a class="item item-avatar" ng-click="specificRepeatOrder(product)" ng-repeat="product in products">
+                <img src="{{product.image}}">
+                <h2>{{product.productName}}</h2>
+                <p ng-repeat="color in product.colorAndQuantity">
+                    <span class="subdued">
+                        {{color.name}} - {{color.qty}}
+                    </span>
+                </p>
+                <span ng-hide="product.viewed" class="badge"><i class="icon ion-ios-circle-filled assertive"></i></span>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

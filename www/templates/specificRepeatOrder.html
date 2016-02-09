@@ -1,0 +1,25 @@
+<ion-view title="Order Detail">
+    <ion-content ng-init="populateTotalQuantity()">
+        <div class="list card">
+            <div class="item ">
+                <h2>Order Created by - {{product.createdBy}}</h2>
+            </div>
+            <div class="item ">
+                <h2>{{product.productName}}</h2>
+                <p>Order Date - {{product.createdAt|date:'MMMM dd, yyyy'}}</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" style="height: 250px;" src="{{product.image}}">
+                <span class="item">
+                    Total Quantity
+                    <span class="badge badge-assertive">{{product.totalQty}}</span>
+                </span>
+                <span ng-repeat="color in product.colorAndQuantity" class="item item-icon-left">
+                    <i class="icon ion-paintbucket"></i>
+                        {{color.name}}
+                    <span class="badge badge-assertive">{{color.qty}}</span>
+                </span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

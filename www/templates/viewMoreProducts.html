@@ -1,0 +1,13 @@
+<ion-view>
+    <ion-content title="{{category}}">
+        <div class="list">
+            <a class="item item-thumbnail-left" ng-click="productPage(product)" ng-repeat="product in products | filterByCategory: category">
+                <img src="{{product.image}}">
+                <h2>{{product.name}}</h2>
+                <p ng-repeat="color in product.colors">
+                    {{color.name}}
+                </p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

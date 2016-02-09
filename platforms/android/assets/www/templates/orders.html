@@ -1,0 +1,19 @@
+<ion-view title="View Orders">
+    <ion-content ng-init="getAllOrders();">
+        <div class="card" ng-repeat="role in allOrders">
+            <div class="item item-divider">
+                {{role.role.name}}
+            </div>
+            <a class="item item-icon-left" ng-click="repeatOrder(role.role.name,role.repeatProducts)">
+                <i class="icon ion-ios-list"></i>
+                Repeat Order
+                <span class="badge badge-assertive">{{role.notViewed}}</span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-ios-compose"></i>
+                Custom Order
+                <span class="badge badge-assertive">0</span>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

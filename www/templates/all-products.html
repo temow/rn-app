@@ -1,0 +1,57 @@
+<ion-view title="Products">
+    <ion-content ng-init="getAllProducts()">
+        <ion-list can-swipe="listCanSwipe">
+            <ion-item ng-repeat="product in products">
+                {{product.name}}
+                <ion-option-button class="button button-energized" ng-click="openModal(product)">
+                    Edit
+                </ion-option-button>
+                <ion-option-button class="button button-assertive" ng-click="delete(product);products.splice(product, 1)">
+                    Delete
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <script id="edit-product.html" type="text/ng-template">
+            <ion-modal-view>
+                <ion-header-bar>
+                    <h1 class="title">Edit Product</h1>
+                    <div class="button button-clear" ng-click="closeModal()">
+                        <span class="icon ion-close"></span>
+                    </div>
+                </ion-header-bar>
+                <ion-content ng-init="getAllRoles();getAllCategories()">
+                    <div class="list">
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Name</span>
+                            <input type="text" value="{{product.name}}" ng-model="product.name">
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Product Image</span>
+                            <span class="row">
+                                <span class="col">
+                                    <img width="100px" height="100px" ng-src="{{product.image}}"/>
+                                </span>
+                                <span class="col col-center">
+                                    <button type="button" ng-click="addMedia()" class="button button-outline button-assertive item-button-right">Change</button>
+                                </span>
+                            </span>
+                        </label>
+                        <label class="item item-input item-select">
+                            <div class="input-label">Select Role</div>
+                            <select ng-model="product.role" ng-options="role.name for role in roles">
+                            </select>
+                        </label>
+                        <label class="item item-input item-select">
+                            <div class="input-label">Select Category</div>
+                            <select ng-model="product.category" ng-options="category.name for category in categories">
+                            </select>
+                        </label>
+                    </div>
+                    <button class="button button-block button-positive" ng-click="edit(product)">
+                        Save
+                    </button>
+                </ion-content>
+            </ion-modal-view>
+        </script>
+    </ion-content>
+</ion-view>

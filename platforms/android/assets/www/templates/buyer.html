@@ -1,0 +1,35 @@
+<ion-view ng-init="getBuyerName();getBuyerRole();getBuyerProducts();imageSrc='http://placehold.it/100x100'" title="{{buyer.name}} Home"">
+    <ion-content>
+        <div ng-repeat="product in products">
+            <div class="list card">
+                <div class="item">
+                    <h2>{{product.name}}</h2>
+                    <p>{{product.category.name}}</p>
+                </div>
+                <div class="item item-image">
+                    <a ng-click="productOrderPage(product)">
+                        <img src="{{product.image}}">
+                    </a>
+                </div>
+                <div class="item">
+                    <p>
+                        <span class="subdued">
+                            <i class="icon ion-paintbrush assertive"></i>
+                            &nbsp;
+                            <span ng-repeat="color in product.colors">
+                                <a ng-click="showImage(color)">{{color.name}}</a>{{$last ? '' : ($index==product.colors-2) ? ' and ' : ', '}}
+                            </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script id="image-modal.html" type="text/ng-template">
+            <div class="modal image-modal transparent" ng-click="closeModal()">
+                <ion-pane class="transparent">
+                    <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
+                </ion-pane>
+            </div>
+        </script>
+    </ion-content>
+</ion-view>
